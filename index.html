@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weather</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Circle-icons-weather.svg/512px-Circle-icons-weather.svg.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+   <link rel="stylesheet" type="text/css" href="load.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="loading">
+  <img id="loading-image" src="loadani.gif" alt="Loading..." />
+</div>
+
+
+<div class="container-fluid" id="main">
+	<div class="wrapper">
+		<h5 class="text-light">MODE:</h5><input type="checkbox" name="checkbox" class="switch">
+	</div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-sm-8">
+
+            <div class="card p-4 text-center">
+            	
+            	<div class="row mt-2"> 
+	                <div class="col-lg-4">
+	                	<div class="search-box">
+						  <input type="text" id="input-search">
+						  	<i class="fa fa-search s-icon" id="submit-search"></i>	  
+						</div>
+	                	<i class="fas fa-map-marker-alt"></i>
+	                    <h5 id="label-city"></h5>
+	                    <h6 id="label-date"></h6>
+	                     <div class="ml-5"> <img  src="https://i.imgur.com/Qw7npIg.png" id="icon-curren-weather"  width="250px"> </div>
+	                </div>
+	                <div  id="detail-info" class="col-lg-8 flex-column temp mt-5">
+	                	<div class="row">
+	                		<div class="col-md-7">
+	                			<h1 class="mb-3 font-weight-bold" id="label-temperature"> </h1> 
+	                			<h6><span id="temp_max"></span> / <span id="temp_min"></span> | Cảm thấy như <span id="feel_like"></span></h6>
+	                			<h4 id="label-description"></h4>
+	                		</div>
+	                		
+	                		<div class="col-md-5 temp-details mt-2 mb-2">
+	                			 <table class="table">
+								    <tbody>
+								      <tr>
+								        <td class="text-left"><i class="fas fa-wind mr-2"  aria-hidden="true"></i>Gió</td>
+								        <td class="text-right"><span id="wind"></span></td>
+								      </tr>
+								      <tr>
+								        <td class="text-left"><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i> Độ ẩm</td>
+								        <td class="text-right"><span id="humidity"></span></td>
+								      </tr>
+								    </tbody>
+								  </table>
+		                        
+	                    	</div>
+	                		
+	                    </div>
+	                    
+	                </div>
+                </div>
+                <div id="forecast-weather">
+	                <div class="row border border-left-0 border-right-0 border-bottom-0">
+	                	<div class="col-12 mt-3"><h5>HẰNG GIỜ</h5></div>
+	                	<div id="next_time_1" class="col-2 border border-top-0 border-bottom-0">
+	                		<div class="next_time"></div>
+	                		<div class="next_time_icon"><img  src="icon-weather/01n.svg"  width="50px"></div>
+	                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+	                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                	</div>
+	                	<div id="next_time_2" class="col-2 border border-top-0 border-bottom-0">
+	                		<div class="next_time"></div>
+	                		<div class="next_time_icon"><img  src="icon-weather/01n.svg"  width="50px"></div>
+	                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+	                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                	</div>
+	                	<div id="next_time_3" class="col-2 border border-top-0 border-bottom-0">
+	                		<div class="next_time"></div>
+	                		<div class="next_time_icon"><img  src="icon-weather/01n.svg"  width="50px"></div>
+	                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+	                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                	</div>
+	                	<div id="next_time_4" class="col-2 border border-top-0 border-bottom-0">
+	                		<div class="next_time"></div>
+	                		<div class="next_time_icon"><img  src="icon-weather/01n.svg"  width="50px"></div>
+	                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+	                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                	</div>
+	                	<div id="next_time_5" class="col-2 border border-top-0 border-bottom-0">
+	                		<div class="next_time"></div>
+	                		<div class="next_time_icon"><img  src="icon-weather/01n.svg"  width="50px"></div>
+	                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+	                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                	</div>
+	                	<div id="next_time_6" class="col-2 border border-top-0 border-bottom-0">
+	                		<div class="next_time"></div>
+	                		<div class="next_time_icon"><img  src="icon-weather/01n.svg"  width="50px"></div>
+	                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+	                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                	</div>
+
+	                </div>
+	                <div class="row border border-left-0 border-right-0 border-bottom-0 mt-5">
+	                	<div class="col-12 mt-3"><h5>HẰNG NGÀY</h5></div>
+	                	<div id="next_day_1" class="col-3 border border-top-0 border-bottom-0 two">
+	                		<div class="next_time"></div>
+	                		<div class="day">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		<div class="night">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		
+	                	</div>
+	                	<div id="next_day_2" class="col-3 border border-top-0 border-bottom-0 two">
+	                		<div class="next_time"></div>
+	                		<div class="day">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		<div class="night">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		
+	                	</div>
+	                	<div id="next_day_3" class="col-3 border border-top-0 border-bottom-0 two">
+	                		<div class="next_time"></div>
+	                		<div class="day">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		<div class="night">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		
+	                	</div>
+	                	<div id="next_day_4" class="col-3 border border-top-0 border-bottom-0 two">
+	                		<div class="next_time"></div>
+	                		<div class="day">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		<div class="night">
+		                		<div class="next_time_icon "><img  src="icon-weather/01n.svg"  width="50px"></div>
+		                		<div><i class="fa fa-tint mr-2 text-primary" aria-hidden="true"></i><span class="next_time_hum"></span></div>
+		                		<div class="mt-2"><span class="next_time_temp"></span></div>
+	                		</div>
+	                		
+	                	</div>
+                </div>	
+                	
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="myjs.js"></script>
+<script type="text/javascript">
+$(window).on('load', function(){
+  setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+});
+function removeLoader(){
+    $( "#loading" ).fadeOut(1000, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loading" ).remove(); //makes page more lightweight 
+  });  
+}
+</script>
+
+</body>
+</html>
